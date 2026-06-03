@@ -3,6 +3,17 @@
   --main-surface-background: #00000000 !important;
   --main-surface-primary: #00000000 !important;
   --sidebar-surface-primary: #00000000 !important;
+  --text-primary: light-dark(#000, #fff) !important;
+}
+
+[class*="popover"],
+[class*="dropdown"],
+[class*="modal"],
+[class*="slideover"],
+[class*="dialog"],
+[class*="sheet"],
+[class*="tooltip"] {
+  --main-surface-primary: light-dark(#fff9, #0009) !important;
 }
 
 #thread-bottom + .text-token-text-secondary > div {
@@ -51,6 +62,7 @@ aside {
   background: none !important;
   border: none !important;
   box-shadow: none !important;
+  color: light-dark(#000, #fff) !important;
   transition:
     background-color 0.5s ease-in-out,
     background 0.5s ease-in-out,
@@ -60,6 +72,18 @@ aside {
 
 main > div > div > .bg-token-bg-primary {
   gap: 0 !important;
+}
+
+div[id="modal-settings"] > div::before {
+  background-color: color-mix(in oklab, var(--gray-900) 50%, transparent) !important;
+}
+
+div[id="modal-settings"] [class*="bg-white"] {
+  background-color: light-dark(#eeeeee, #1a1a1a) !important;
+}
+
+div[id="modal-settings"] [role="dialog"] {
+  background-color: light-dark(#fffe, #000e) !important;
 }
 
 /* cgpt-glass */
@@ -89,18 +113,18 @@ form[aria-label="Message Composer"] > div {
   margin-top: 5px;
 }
 .bg-\[var\(--sidebar-surface-tertiary\)\] {
-  background: rgba(0, 0, 0, 0.2) !important;
+  background: light-dark(#fff2, #0002) !important;
   border-radius: 16px;
 }
 .bg-token-bg-elevated-secondary {
   background: none;
 }
 .bg-token-message-surface {
-  background: rgba(0, 0, 0, 0.4);
+  background: light-dark(#fff4, #0004);
 }
 section.popover.flex.h-full.w-full.flex-col.bg-token-main-surface-primary {
   backdrop-filter: blur(16px);
-  background: rgba(0, 0, 0, 0.5) !important;
+  background: light-dark(#fff5, #0005) !important;
 }
 
 /* cgpt-transparent sidebar */
@@ -157,4 +181,16 @@ body > picture {
   mask-repeat: no-repeat !important;
   -webkit-mask-size: cover !important;
   mask-size: cover !important;
+}
+
+/* cgpt-main input transparency */
+[data-type="unified-composer"] > div:nth-child(2) > div {
+  background: light-dark(#fff6, #0006);
+  backdrop-filter: blur(30px);
+}
+
+/* cgpt-transparent modals */
+[data-radix-popper-content-wrapper] > div {
+  background-color: light-dark(#fff8, #0008) !important;
+  backdrop-filter: blur(30px);
 }

@@ -1,7 +1,7 @@
 /* themoviedb-transparency */
 
 /* @ home page */
-.inner_content, /* @ home page green background image */
+.inner_content, section.inner_content.trending::before, /* @ home page green background image */
 section.inner_content.bg_image.video div.column_wrapper, /* @ home page latest trailers section */
 div.scroller_wrap.should_fade::after, /* @ home page sections right side fade */
 section.search, /* @ home page top search bar */
@@ -26,6 +26,7 @@ div#lightbox_popup div.info, /* @ poster expand popup bg */
 /* @ edit page */
 .k-table-footer, .k-table-group-row, .k-table-group-sticky-header, .k-table-header, .k-table-tfoot, .k-table-thead, /* @ edit page alternative titles "Title" "Type" "Country" inside */
 td.k-table-td > .k-input, /* @ edit page taglines (on editing a tagline) (custom) */
+.k-input.k-input-solid > .k-input.k-input-solid, /* @ edit page input (custom) */
 
 /* @ images page */
 .bg-poster-grey, /* @ images page cards */
@@ -158,6 +159,37 @@ body,
   --kendo-disabled-opacity: 0.45 !important;
 }
 
+/* @ Overwrite layer utilities */
+
+@layer utilities {
+  .text-black\!, /* @ images page left side bar text */
+  .text-gray-900 /* @ list page "show comments", "sort by", "show me" border */ {
+    color: rgb(var(--trans-theme-primary-text)) !important;
+  }
+
+  .border-tmdb-light-blue\! /* @ title page keywords blue border for tones */ {
+    border-color: rgba(var(--trans-theme-primary-text), 0.4) !important;
+  }
+
+  .bg-light-grey\! /* @ popular movies page image paceholder */ {
+    background-color: transparent !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    transition:
+      background-color 0.5s ease-in-out,
+      background 0.5s ease-in-out,
+      border 0.5s ease-in-out,
+      box-shadow 0.5s ease-in-out !important;
+  }
+
+  .bg-neutral-200 /* @ title awards page nominee tag */ {
+    background-color: rgba(var(--trans-theme-primary-bg), var(--trans-theme-transparency-lvl)) !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+  }
+}
+
 /* @ ------------------------- primary text color ------------------------- */
 
 /* @ home page */
@@ -176,16 +208,22 @@ section.recommendations div.scroller div.item p, /* @ title page recomended titl
 section.content_score p, /* @ title page right side content score's texts  */
 #vibes_form .text-tmdb-dark-blue, /* @ title page "What's your Vibe?" popup headings (modified) */
 #vibes_form .text-white, /* @ title page "What's your Vibe?" popup "I'm Done" text (modified) */
+section.panel h3 em, /* @ If you liked Game of Thrones, you might also like... */
 
 /* @ edit page */
 .k-input-solid, /* @ edit page input */
 .k-form-field, /* @ edit page labels */
+.k-picker, .k-picker.k-picker-solid, /* @ edit page main language selector */
+.k-input, .k-input.k-input-solid, /* @ edit page main language selector popup search field */
+.k-button, .k-button.k-button-base, .k-button.k-button-solid, .k-button.k-button-solid.k-button-base, /* @ edit page add alternative title button */
 .k-form, .k-form-inline, /* @ edit page External IDs labels */
 div.column_wrapper ul.panel li a, /* @ edit page left side panel text */
 div.keyboard_shortcut_text p a, div.report_issue p a, /* @ edit page keyboard shortcuts */
 .k-data-table, .k-table, /* @ edit page alternative titles */
 .k-grid-footer, .k-grid-header, .k-group-cell, .k-grouping-header, .k-grouping-row, .k-selection-aggregates, .k-table-footer, .k-table-group-row, .k-table-group-sticky-header, .k-table-header, .k-table-tfoot, .k-table-thead, /* @ edit page alternative titles "Title" "Type" "Country" */
 div.item a, div.item p a, /* @ edit page cast people name */
+.k-input-solid .k-input-prefix, .k-input-solid .k-input-suffix, /* @ crew page filter popup "x" close button */
+.k-popup, /* @ crew page filter popup */
 
 /* @ translations page */
 .text-\[var\(--primaryColorContrast\)\], /* @ left sidebar heading "Translations" text */
@@ -218,12 +256,11 @@ div.pagination.infinite p a, /* @ profile discussions page load more button */
 
 /* @ messages page */
 div#message_list .timestamp, /* @ messages page date */
+.spacer > textarea, /* @ add new template popup textarea field */
+.spacer > input, /* @ add new template popup text fields */
 
 /* @ list page */
 .text-slate-900, /* @ list page text "show comments", "sort by", "show me" text */
-
-/* @ settings page */
-.green, .pink, .yellow, /* @ settings page blocked users "Username", "Action" text */
 
 /* @ user ratings page */
 div.card.v4 div.action_bar ul li.selected a span.rating.wrapper, /* @ user ratings page "Your Rating" score */
@@ -263,6 +300,7 @@ section.inner_content a.underline, /* @ title page review card "read the rest" t
 section.split_column section.genres ul li a, section.split_column section.keywords ul li a, /* @ title page keywords color */
 div.header.collection h2, div.header.collection p, /* @ title page collection card */
 div.discussion_container tr, /* @ title page discussions tab "Want to be notified when someone makes the first post?" text */
+ul.mlt-genres li button, /* @ Or maybe something a bit more buttons */
 
 /* @ edit page */
 .k-button-solid-primary, /* @ edit page alternative titles, edit button */
@@ -328,17 +366,24 @@ div.rating, /* @ title page user review rating */
 div.discussion_container tr, /* @ title page discussion tab cards */
 section.inner_content a.edit, /* @ title page "Add a Video", "Add Backdrop", "Add Poster" button */
 #vibes_form .bg-gradient-to-r, /* @ title page "What's your Vibe?" popup "I'm Done" button (modified) */
+ul.mlt-genres li button, /* @ Or maybe something a bit more buttons */
+
+/* @ title awards page */
+.divide-y.divide-gray-300.rounded-lg.border-gray-300.shadow-lg, /* @ title awards page nominee tag */
 
 /* @ edit page */
-.k-input-solid, /* @ edit page input */
+.k-input, .k-input.k-input-solid, /* @ edit page input */
+.k-picker, .k-picker.k-picker-solid, /* @ edit page main language selector */
 .k-grid, /* @ edit page alternative titles */
-.k-toolbar-solid, /* @ edit page alternative titles */
+.k-toolbar, .k-toolbar.k-toolbar-solid, /* @ edit page alternative titles */
 .k-grid-footer, .k-grid-header, .k-group-cell, .k-grouping-header, .k-grouping-row, .k-selection-aggregates, /* @ edit page alternative titles "Title" "Type" "Country" */
+.k-button, .k-button.k-button-base, .k-button.k-button-solid, .k-button.k-button-solid.k-button-base, /* @ edit page add alternative title button */
 .k-button-solid-primary, /* @ edit page Alternative Titles, edit button */
 .k-button-solid-base:not([aria-label="select"]:has(> .k-svg-i-caret-alt-down)), /* @ edit page alternative titles, delete button */
 .media-nav-panel > h3, /* @ edit page left side panel header (custom) */
 div.error_status.info h2, /* @ edit page cast "A few notes about editing the cast" heading */
 .k-form-field-wrap > .k-input.k-textbox, /* @ edit page release information popup "note" input (custom) */
+.k-input-solid .k-input-prefix, .k-input-solid .k-input-suffix, /* @ crew page filter popup "x" close button */
 
 /* @ translations page */
 .media-nav-panel, table.media-translations, /* @ translations page left side panel (modified) */
@@ -375,6 +420,8 @@ div.carton div.content pre, div.md-preview pre, /* @ discussion page card code s
 
 /* @ messages page */
 div.you div.message, /* @ messages page messages */
+.spacer > textarea, /* @ add new template popup textarea field */
+.spacer > input, /* @ add new template popup text fields */
 
 /* @ user ratings page */
 div.inner_block div.inner_content div.content div.title_header div.group_wrapper div.group_dropdown ul, /* @ user ratings page Filter by dropdown hover */
@@ -406,6 +453,12 @@ body:has(> div.header > h2 > a[href^="/admin"]) .btn-secondary, /* @ admin page 
 
 /* @ search results page */
 div.column_wrapper div.settings_panel, /* @ search results page left side panel */
+
+/* @ search page */
+.bg-white[class*="comp:"][class*="-card"], /* @ cards bg (custom) */
+
+/* @ list page */
+li.bg-white[id], /* @ cards bg (custom) */
 
 /* @ misc */
 .card /* @ all cards */ {
@@ -563,6 +616,13 @@ section.split_column section.keywords {
   }
 }
 
+/* @ title awards page */
+.divide-y {
+  :where(& > :not(:last-child)) {
+    border-bottom: 2px solid rgba(var(--trans-theme-primary-text), 0.2) !important;
+  }
+}
+
 /* @ ------------------------- fix tv page ------------------------- */
 
 /* @ "Original Air Date" hover fix */
@@ -573,6 +633,11 @@ section.split_column section.keywords {
 /* @ all seasons page */
 div.season_wrapper {
   border-bottom: unset !important;
+}
+
+/* @ network png image */
+section.facts ul.networks li img {
+  filter: brightness(0) invert(0.75) !important;
 }
 
 /* @ ------------------------- fix episodes page ------------------------- */
@@ -619,10 +684,18 @@ div.column_wrapper ul.panel li a.selected {
 }
 
 /* @ "Origin Country" countries */
-.k-chip-solid-base {
+.k-chip,
+.k-chip.k-chip-base,
+.k-chip.k-chip-solid,
+.k-chip.k-chip-solid.k-chip-base {
   border-color: transparent !important;
   color: rgb(var(--trans-theme-primary-text)) !important;
   background-color: rgba(var(--trans-theme-primary-bg), 0.1) !important;
+}
+
+/* @ main language selector dropdown icon */
+.k-picker.k-dropdownlist > .k-button {
+  background-color: transparent !important;
 }
 
 /* @ ------------------------- fix images page ------------------------- */
@@ -635,6 +708,9 @@ div.column_wrapper ul.panel li a.selected {
 
 /* @ left side panel */
 #image_menu.with_counts li {
+  a.group\/language /* @ language group */ {
+    background-color: rgba(var(--trans-theme-primary-bg), 0.028) !important;
+  }
   &:not(:has(> a[class*=" bg-neutral-"])):hover, /* @ language group hover */
   & > a:hover /* @ language & region hover */ {
     background-color: rgba(var(--trans-theme-primary-bg), var(--trans-theme-transparency-lvl)) !important;
@@ -642,30 +718,35 @@ div.column_wrapper ul.panel li a.selected {
   &:has(> a[class*=" bg-neutral-"]):hover /* @ language group hover (when that group is selected) */ {
     background-color: transparent !important;
   }
-
-  /* @ image count and region code */
-  a span.md\:rounded-lg {
-    background-color: rgba(var(--trans-theme-primary-bg), var(--trans-theme-transparency-lvl)) !important;
-    border: none !important;
+  a.group\/region:hover /* @ region group hover */ {
+    background-color: rgba(var(--trans-theme-primary-bg), 0.01) !important;
   }
 
-  a.bg-neutral-200 /* @ language (when the language group is selected) */ {
-    background-color: rgba(var(--trans-theme-primary-bg), 0.1) !important;
-    color: rgb(var(--trans-theme-link-text)) !important;
-  }
-  a.bg-neutral-200:has(+ ul a.bg-neutral-200\/50) /* @ language (when a region is selected) */ {
-    color: rgb(var(--trans-theme-primary-text)) !important;
-  }
-  &.bg-neutral-100 /* @ region (when the language group is selected) */ {
-    background-color: rgba(var(--trans-theme-primary-bg), var(--trans-theme-transparency-lvl)) !important;
-    color: rgb(var(--trans-theme-link-text)) !important;
-  }
-  a.bg-neutral-200\/50 /* @ region (when a region is selected) */ {
-    background-color: transparent !important;
-    color: rgb(var(--trans-theme-link-text)) !important;
+  @layer utilities {
+    /* @ image count and region code */
+    a span.md\:rounded-lg {
+      background-color: rgba(var(--trans-theme-primary-bg), var(--trans-theme-transparency-lvl)) !important;
+      border: none !important;
+    }
 
-    &:hover {
+    a.bg-neutral-200 /* @ language (when the language group is selected) */ {
       background-color: rgba(var(--trans-theme-primary-bg), 0.1) !important;
+      color: rgb(var(--trans-theme-link-text)) !important;
+    }
+    a.bg-neutral-200:has(+ ul a.bg-neutral-200\/50) /* @ language (when a region is selected) */ {
+      color: rgb(var(--trans-theme-primary-text)) !important;
+    }
+    &.bg-neutral-100 /* @ region (when the language group is selected) */ {
+      background-color: transparent !important;
+      color: rgb(var(--trans-theme-link-text)) !important;
+    }
+    a.bg-neutral-200\/50 /* @ region (when a region is selected) */ {
+      background-color: transparent !important;
+      color: rgb(var(--trans-theme-link-text)) !important;
+
+      &:hover {
+        background-color: rgba(var(--trans-theme-primary-bg), 0.1) !important;
+      }
     }
   }
 }
@@ -673,13 +754,6 @@ div.column_wrapper ul.panel li a.selected {
 /* @ left side panel hide no language region  */
 #image_menu.with_counts li#settings_panel_language_xx > ul {
   display: none !important;
-}
-
-/* @ image card language selector */
-.k-picker-solid {
-  border-color: transparent !important;
-  color: rgb(var(--trans-theme-primary-text)) !important;
-  background-color: rgba(var(--trans-theme-primary-bg), 0.1) !important;
 }
 
 div#lightbox_popup div.info div.meta h3, section.inner_content ul.images div.info div.meta h3 /* @ image card border below "info" text */ {
@@ -737,12 +811,12 @@ section.inner_content h3 span.glyphicons_v2 {
   opacity: unset !important;
 }
 
-/* @ [extension] find duplciate images red image card */
+/* @ [userscript] find duplciate images red image card */
 section.inner_content ul.images li.card div.info.find-dups-red-card {
   background-color: rgba(var(--trans-theme-red), 0.15) !important;
 }
 
-/* @ [extension] TheMovieDB Image Translations script left side panel text */
+/* @ [userscript] TheMovieDB Image Translations script left side panel text */
 div.column_wrapper ul.panel.with_counts li[style="font-size: 0.8em;"] a {
   color: rgba(var(--trans-theme-primary-text), 0.55) !important;
 }
@@ -856,6 +930,57 @@ table.changes_with_aggregates td.diff_data {
   background-color: rgba(var(--trans-theme-green), 0.2) !important;
 }
 
+/* @ admin changes page image popup size on hover */
+body:has(> div > h2 > a[href="/admin/dashboard"]) .k-child-animation-container {
+  &:has(> .k-tooltip.k-popup.image_popup.profile),
+  &:has(> .k-tooltip.k-popup.image_popup.poster) {
+    img {
+      width: 200px !important;
+    }
+  }
+
+  &:has(> .k-tooltip.k-popup.image_popup.avatar),
+  &:has(> .k-tooltip.k-popup.image_popup.backdrop) {
+    img {
+      width: 300px !important;
+    }
+  }
+
+  &:has(> .k-tooltip.k-popup.image_popup.logo),
+  &:has(> .k-tooltip.k-popup.image_popup.title_logo) {
+    img {
+      width: 400px !important;
+    }
+  }
+}
+
+/* @ [userscript] TheMovieDB Revert Changes checkbox */
+input[type="checkbox"][class^="rvt-chg-"] {
+  background-color: rgba(var(--trans-theme-primary-text), 0.9) !important;
+
+  &:checked {
+    background-color: #286cc9 !important;
+  }
+
+  &:disabled {
+    background-color: rgba(var(--trans-theme-primary-text), 0.3) !important;
+  }
+
+  &:disabled:checked {
+    background-color: rgba(var(--trans-theme-primary-text), 0.3) !important;
+  }
+
+  &:disabled:checked::after {
+    border-color: rgb(var(--trans-theme-primary-text)) !important;
+  }
+}
+#rvt-chg-settings-icon {
+  fill: rgba(var(--trans-theme-primary-text), 0.9) !important;
+}
+.rvt-chg-link {
+  color: rgb(var(--trans-theme-link-text)) !important;
+}
+
 /* @ ------------------------- fix discussion page ------------------------- */
 
 /* @ card header */
@@ -916,6 +1041,16 @@ div.subject div.tag span {
 div.content blockquote,
 section.content blockquote {
   background-color: rgba(var(--trans-theme-secondary-bg), 0.1) !important;
+}
+
+/* @ page numbers */
+.pagy a:not([role="separator"]) {
+  background-color: rgba(var(--trans-theme-primary-bg), var(--trans-theme-transparency-lvl)) !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+.pagy a[aria-current="page"] {
+  background-color: rgba(var(--trans-theme-primary-bg), 0.1) !important;
 }
 
 /* @ ------------------------- fix popular movies page ------------------------- */
@@ -1044,7 +1179,7 @@ ul.panel.kendo.k-panelbar ul > .k-item:hover span {
 
 body:has(> div.header > h2 > a[href^="/admin"]) {
   table th.k-sorted, /* @ bible page table sorted header */
-  table td /* @ content texts */ {
+  table td:not(thead td) /* @ content texts */ {
     color: rgb(var(--trans-theme-primary-text)) !important;
   }
 
@@ -1058,6 +1193,7 @@ body:has(> div.header > h2 > a[href^="/admin"]) {
     border: 1px solid rgb(var(--trans-theme-primary-text)) !important;
   }
 
+  /* @ table inside lines */
   table td {
     border-bottom: 1px solid rgba(var(--trans-theme-primary-text), 0.2) !important;
     border-right: 1px solid rgba(var(--trans-theme-primary-text), 0.2) !important;
@@ -1137,6 +1273,11 @@ ul.compact_message_list li /* @ chats */ {
   background-color: rgb(var(--trans-theme-solid-bg)) !important;
 }
 
+/* @ TMDB Support's message color */
+div.you.fLccjMiKaOaKcgeNKfabMLjP div.message {
+  background-color: rgba(var(--tmdbLightBlue), 0.15) !important;
+}
+
 /* @ reply as (messaging place) */
 #reply_as_self,
 #reply_as_support {
@@ -1151,6 +1292,30 @@ ul.compact_message_list li /* @ chats */ {
 /* @ messages page messages */
 div.you div.message a {
   color: rgb(var(--trans-theme-link-text)) !important;
+}
+
+/* @ template edit popup "Create new template" button */
+#new_template {
+  padding-block: var(--kendo-spacing-1\.5, 0.375rem) !important;
+  padding-inline: var(--kendo-spacing-3, 0.75rem) !important;
+  border-radius: var(--kendo-border-radius-md, 0.375rem) !important;
+}
+/* @ template edit popup "edit" links */
+a.edit_template {
+  color: rgb(var(--trans-theme-link-text)) !important;
+}
+/* @ add new template popup text fields */
+.spacer > textarea,
+.spacer > input {
+  border-radius: var(--kendo-border-radius-md, 0.375rem) !important;
+}
+/* @ add new template popup save button */
+button.rounded {
+  padding: unset !important;
+  border: unset !important;
+  padding-block: var(--kendo-spacing-1\.5, 0.375rem) !important;
+  padding-inline: var(--kendo-spacing-3, 0.75rem) !important;
+  border-radius: var(--kendo-border-radius-md, 0.375rem) !important;
 }
 
 /* @ ------------------------- fix leaderboard page ------------------------- */
@@ -1256,18 +1421,30 @@ div.settings_content div.group.no_pad {
 }
 
 /* @ images page left side panel header icons tooltip small triangle */
-.tmdb_theme .k-callout-s {
+.tmdb_theme .k-callout {
   border-top-color: rgb(var(--trans-theme-solid-bg)) !important;
 }
 
 /* @ discussion page left side panel notification tooltip small triangle */
-.tmdb_theme_white .k-callout-w {
+.tmdb_theme_white .k-callout {
   border-right-color: rgb(var(--trans-theme-solid-bg)) !important;
+}
+
+/* @ small triangle by custom tooltip by userscripts */
+.k-tooltip .k-callout {
+  color: rgb(var(--trans-theme-solid-bg)) !important;
+}
+
+/* @ border for tooltip visibility */
+.k-tooltip.k-popup {
+  border: 1px solid rgba(var(--trans-theme-primary-text), 0.1) !important;
 }
 
 /* @ ------------------------- fix popups ------------------------- */
 
 /* @ fix background */
+.k-calendar, /* @ calender popup */
+.k-calendar .k-header, /* @ calender popup */
 .k-upload, .k-upload .k-dropzone, .k-upload .k-file, .k-upload .k-upload-dropzone, .k-upload .k-upload-files, /* @ images page add images popup upload box */
 .k-window /* @ images page add images popup */ {
   background-color: rgb(var(--trans-theme-solid-bg)) !important;
@@ -1275,6 +1452,7 @@ div.settings_content div.group.no_pad {
 }
 
 /* @ fix texts */
+.k-calendar, /* @ calender popup */
 .k-upload, .k-upload .k-dropzone, .k-upload .k-file, .k-upload .k-upload-dropzone, .k-upload .k-upload-files, /* @ images page add images popup upload box */
 .k-prompt-container p, .k-window-content p, /* @ images page add images popup content (modified) */
 .k-window /* @ images page add images popup "Upload a Backdrop" title text */ {
@@ -1291,6 +1469,7 @@ section.window_content a {
   color: rgb(var(--trans-theme-link-text)) !important;
 }
 
+.k-calendar .k-other-month, /* @ calender popup */
 .k-upload .k-dropzone .k-dropzone-hint, .k-upload .k-upload-dropzone .k-dropzone-hint, /* @ images page add images popup upload box "Drop files here to upload" text */
 section.window_content ul /* @ images page add images popup "A maximum resolution" text (disclaimer texts) */ {
   color: rgba(var(--trans-theme-primary-text), 0.6) !important;
@@ -1346,8 +1525,14 @@ table.card.releases tr.sub th /* @ release dates page heading */ {
 /* @ ------------------------- fix icons ------------------------- */
 
 @media (prefers-color-scheme: dark) {
-  section.facts div.social_links a.social_link /* @ title page right sidebar icons */ {
+  section.full_wrapper div.social_links a.social_link /* @ title page right sidebar icons */ {
     filter: invert(100%) hue-rotate(180deg) contrast(90%) !important;
+
+    /* @ [userscript] IMDb TMDB Letterboxd Linker */
+    #linker-letterboxd-svg,
+    #linker-imdb-svg {
+      filter: brightness(3.4) !important;
+    }
   }
 
   /* @ bright white icons */
@@ -1430,6 +1615,7 @@ table.card.releases tr.sub th /* @ release dates page heading */ {
   .glyphicons_v2.play,
   img[src$="/t/p/original/e2XGMhHKR9QKE8huwuP0xqqZ9zs.svg"], /* @ edit page videos youtube icon */
   img[src$="/t/p/original/flerIzLJEvm4l98TYf3gOy639bb.svg"], /* @ edit page videos vimeo icon */
+  .bg-awards-header,
   .glyphicons_v2.star:not(.selected, .white) {
     filter: invert(1) brightness(0.6) !important;
   }
@@ -1448,6 +1634,12 @@ table.card.releases tr.sub th /* @ release dates page heading */ {
   section.inner_content section.header ul.actions li.tooltip {
     .glyphicons_v2.white {
       filter: brightness(0.7) !important;
+
+      /* @ Add to list */
+      &.list-numbers,
+      &.numberlist {
+        filter: invert(1) brightness(0.7) !important;
+      }
     }
   }
 
@@ -1548,14 +1740,15 @@ iframe {
 }
 
 /* @ white input element while page load (don't use important) */
-input:not([class*="k-"]):not([id^="API"]),
-select:not([class*="k-"]) {
+input:not([class*="k-"]):not([id^="API"]):not([id][class*="Input"]),
+select:not([class*="k-"]):not([id][class*="Select"]) {
   background-color: transparent;
   border-color: transparent;
   color: transparent;
 }
 
 /* @ blue buttons */
+#new_template, /* @ messages page template edit popup "Create new template" button */
 .k-dialog-actions > .k-button.k-button-solid-primary, /* @ images page remove image popup "yes" button */
 .k-button:has(> .k-svg-i-save), /* @ edit page Alternative Titles popup save button */
 .k-button.save[type="submit"] /* @ edit page Primary Facts save button */ {
@@ -1569,13 +1762,18 @@ select:not([class*="k-"]) {
   }
 }
 
+/* @ remove static underlines */
+section.inner_content p a {
+  text-decoration: unset; /* @ not using important to avoid overwriting hover style */
+}
+
 /* @ ------------------------- features ------------------------- */
 
 /* themoviedb-block ads */
 tonefuse-ad {
   display: none !important;
 }
-body {
+body:has(tonefuse-ad) {
   overflow: unset !important;
 }
 
@@ -1592,6 +1790,22 @@ div.header.collection /* @ title page collection card */ {
 }
 div.card.v4.list div.details /* @ list page cards */ {
   background-color: rgba(var(--trans-theme-secondary-bg), 0.6) !important;
+}
+div.header.gradient.background_image /* @ user page top image */ {
+  background-blend-mode: darken !important;
+}
+.list_wrap /* @ list page top image */ {
+  div.backdrop {
+    background-color: unset !important;
+    &::before {
+      background-color: rgba(var(--trans-theme-secondary-bg), 0.6) !important;
+      mix-blend-mode: unset !important;
+    }
+  }
+  img.backdrop {
+    filter: unset !important;
+    mix-blend-mode: unset !important;
+  }
 }
 
 /* themoviedb-hide primary color */

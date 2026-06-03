@@ -1,19 +1,21 @@
-/* transparency */
+/* aero-transparency */
 html,
 body,
 nav,
 header,
-.app-root,
-#pass-sidebar,
-#main,
-#content,
+footer,
 section,
-.background-switcher > div,
-.left-menu,
-.top-nav,
+main,
+article,
+.container,
+.wrapper,
 .content,
-.content-background,
-.left-menu-content-wrapper {
+.sidebar,
+.menu,
+.navbar,
+.page,
+.post,
+.markdown-body {
   background-color: transparent !important;
   background: none !important;
   border: none !important;
@@ -23,4 +25,16 @@ section,
     background 0.5s ease-in-out,
     border 0.5s ease-in-out,
     box-shadow 0.5s ease-in-out !important;
+}
+
+/* aero-darkreader */
+:root {
+  --darkreader-background-ffffff: transparent !important;
+}
+
+/* aero-no footer */
+footer,
+.footer,
+.site-footer {
+  display: none !important;
 }
